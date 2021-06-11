@@ -10,13 +10,6 @@
 #include <GL/glew.h>
 #include <nlohmann/json.hpp>
 
-// #include <cgv_gl/arrow_renderer.h>
-// #include <cgv_gl/box_renderer.h>
-// #include <cgv_gl/gl/mesh_render_info.h>
-// #include <cgv_gl/rounded_cone_renderer.h>
-// #include <cgv_gl/sphere_renderer.h>
-// #include <cgv_gl/spline_tube_renderer.h>
-
 class my_plugin : public cgv::base::node,
                public cgv::render::drawable,
                public cgv::gui::event_handler,
