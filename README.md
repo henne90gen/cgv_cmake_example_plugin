@@ -47,19 +47,6 @@ use this installed version, just call cmake with `CGV_DIR` set to point to the `
 cmake -D CGV_DIR=<cgv install path> ..
 ```
 
-Finally, to start your plugin call the `cgv_viewer` executable that's inside the `lib` folder with the following
-arguments:
-
-````bash
-CGV_INSTALL_DIR="<cgv install path>"
-PLUGIN_BUILD_DIR="<path to cmake build directory>"
-$CGV_INSTALL_DIR/lib/cgv_viewer \
-  plugin:cg_fltk \
-  plugin:crg_stereo_view \
-  plugin:$PLUGIN_BUILD_DIR/my_plugin \
-  type(shader_config):shader_path='$CGV_INSTALL_DIR/include/cgv-libs/cgv_gl/glsl'
-````
-
 ### Git Version
 
 ```cmake
@@ -88,4 +75,21 @@ add_dependencies(my_plugin cg_fltk crg_stereo_view)
 mkdir build && cd build
 cmake -D CGV_DIR=<cgv path (see "Include Options" for more details)> ..
 make
+```
+
+## Running
+
+Finally, to start your plugin call the `cgv_viewer` executable, that's either inside the `lib` of the installed version or
+which has been built into the `<cmake build directory>/cgv/bin` folder, with the following arguments:
+
+```bash
+# One of the SHADER_DIRs for the respective version
+SHADER_DIR="<cgv install path>/include/cgv-libs/cgv_gl/glsl"
+SHADER_DIR="<cgv git path>/libs/cgv_gl/glsl"
+PLUGIN_BUILD_DIR="<path to cmake build directory>"
+./cgv_viewer \
+  plugin:cg_fltk \
+  plugin:crg_stereo_view \
+  type(shader_config):shader_path=$SHADER_DIR \
+  plugin:$PLUGIN_BUILD_DIR/my_plugin
 ```
