@@ -40,8 +40,8 @@ structure:
     - cgv-config.cmake
 ```
 
-The `include` sub-folder contains the header files of the framework whereas lib contains the pre-built `.dll` files. To
-use this installed version, just call cmake with `CGV_DIR` set to point to the `cgv-install` folder.
+The `include` sub-folder contains the header files of the framework whereas lib contains the pre-built `.dll` files.
+To use this installed version, just call cmake with `CGV_DIR` set to point to the `cgv-install` folder.
 
 ```bash
 cmake -D CGV_DIR=<cgv install path> ..
